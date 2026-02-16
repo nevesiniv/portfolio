@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vinicius Feitosa | Full Stack Developer & IA Aplicada</title>
+  <meta name="description" content="Desenvolvedor Full Stack focado em criar sistemas com IA que reduzem operação manual, aumentam eficiência e geram resultado real para o negócio.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark">
+  <!-- Scroll Progress Bar -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- Theme Toggle -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+    <svg class="icon-moon" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+    <svg class="icon-sun" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
+      <circle cx="12" cy="12" r="5"/>
+      <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+      <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+    </svg>
+  </button>
+
+  <!-- Animated Background Blobs -->
+  <div class="blobs-container">
+    <div class="blob blob-violet"></div>
+    <div class="blob blob-cyan"></div>
+    <div class="blob blob-amber"></div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content-wrapper">
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="hero">
+      <div class="hero-grid">
+        <!-- Left: Avatar -->
+        <div class="avatar-section">
+          <div class="avatar-wrapper">
+            <!-- Decorative shapes -->
+            <div class="deco-circle deco-1"></div>
+            <div class="deco-circle deco-2"></div>
+            <!-- Card with slight rotation -->
+            <div class="avatar-card shadow-cartoon" data-hero="avatar-card">
+              <img src="assets/avatar.png" alt="Vinicius Feitosa" class="avatar-image"
+                onerror="this.style.display='none'; document.getElementById('avatarPlaceholder').style.display='flex';">
+              <div class="avatar-placeholder" id="avatarPlaceholder">
+                <span style="font-size: 5rem;">👨‍💻</span>
+              </div>
+            </div>
+            <!-- Status badge -->
+            <div class="status-badge shadow-cartoon-sm" data-hero="oi-badge">
+              <span class="status-dot"></span> Disponível para projetos
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Content -->
+        <div class="hero-content">
+          <!-- Terminal-style greeting -->
+          <div class="terminal-badge shadow-cartoon-sm" data-hero="dev-badge">
+            <span class="terminal-prompt">$</span>
+            <span class="typing-text" id="typingText"></span>
+            <span class="cursor">|</span>
+          </div>
+
+          <h1 class="hero-title" data-hero="title">
+            VINICIUS
+            <span class="hero-name">
+              FEITOSA
+              <svg class="name-underline" viewBox="0 0 300 12" preserveAspectRatio="none">
+                <path d="M0 6 Q75 0 150 6 Q225 12 300 6" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </h1>
+
+          <div class="role-tags" data-hero="description">
+            <span class="role-tag shadow-cartoon-sm">Full Stack Developer</span>
+            <span class="role-tag shadow-cartoon-sm">IA Aplicada</span>
+            <span class="role-tag shadow-cartoon-sm">Automação</span>
+          </div>
+
+          <p class="hero-description" data-hero="description2">
+            Crio sistemas com inteligência artificial que eliminam trabalho manual
+            e geram resultado real. Atualmente na <strong>NextApps</strong>, construindo
+            um CRM com IA para +10 mil usuários.
+          </p>
+
+          <div class="hero-buttons" data-hero="buttons">
+            <a href="#projetos" class="btn btn-primary shadow-cartoon">VER PROJETOS</a>
+            <a href="#contato" class="btn btn-secondary shadow-cartoon">FALAR COMIGO</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section class="section" id="sobre">
+      <h2 class="section-title" data-scroll="slide-left">SOBRE MIM</h2>
+      <div class="about-card shadow-cartoon" data-scroll="scale-in">
+        <p class="about-text">
+          Minha trajetória mistura <strong>código e gestão</strong>: já liderei 78 pessoas em operações hospitalares,
+          criei automações em Python para vigilância sanitária e desenvolvi sistemas educacionais para milhares de usuários.
+          Essa experiência me deu uma visão que vai além do técnico — <em>entendo processos, gargalos e o que realmente
+          importa para quem usa o sistema</em>.
+        </p>
+      </div>
+
+      <h3 class="subsection-title" data-scroll="fade" data-delay="200">Stack</h3>
+      <div class="skills-flow">
+        <span class="skill-pill shadow-cartoon-sm" data-scroll="scale" data-delay="0">Next.js</span>
+        <span class="skill-pill shadow-cartoon-sm" data-scroll="scale" data-delay="60">React</span>
+        <span class="skill-pill shadow-cartoon-sm" data-scroll="scale" data-delay="120">TypeScript</span>
+        <span class="skill-pill shadow-cartoon-sm" data-scroll="scale" data-delay="180">Node.js</span>
+        <span class="skill-pill shadow-cartoon-sm" data-scroll="scale" data-delay="240">Python</span>
+        <span class="skill-pill shadow-cartoon-sm" data-scroll="scale" data-delay="300">Tailwind</span>
+        <span class="skill-pill shadow-cartoon-sm" data-scroll="scale" data-delay="360">PostgreSQL</span>
+        <span class="skill-pill shadow-cartoon-sm" data-scroll="scale" data-delay="420">Redis</span>
+        <span class="skill-pill shadow-cartoon-sm" data-scroll="scale" data-delay="480">Prisma</span>
+        <span class="skill-pill shadow-cartoon-sm" data-scroll="scale" data-delay="540">Vue.js</span>
+        <span class="skill-pill shadow-cartoon-sm" data-scroll="scale" data-delay="600">FastAPI</span>
+        <span class="skill-pill shadow-cartoon-sm" data-scroll="scale" data-delay="660">Docker</span>
+        <span class="skill-pill shadow-cartoon-sm" data-scroll="scale" data-delay="720">Kubernetes</span>
+        <span class="skill-pill shadow-cartoon-sm" data-scroll="scale" data-delay="780">Terraform</span>
+      </div>
+    </section>
+
+    <!-- ===== EXPERIENCE SECTION ===== -->
+    <section class="section" id="experiencia">
+      <h2 class="section-title" data-scroll="slide-left">EXPERIÊNCIA</h2>
+      <div class="exp-grid">
+        <div class="exp-card shadow-cartoon" data-scroll="slide-up" data-delay="0">
+          <div class="exp-period">2025 — agora</div>
+          <h3 class="exp-company">NextApps Brasil</h3>
+          <span class="exp-role">Full Stack Pleno</span>
+          <p class="exp-desc">
+            CRM inteligente com IA. Next.js 16, React 19, Hono.js, PostgreSQL, Redis.
+            Integrações WhatsApp, Iugu, Google APIs, n8n. +10 mil usuários.
+          </p>
+        </div>
+        <div class="exp-card shadow-cartoon" data-scroll="slide-up" data-delay="200">
+          <div class="exp-period">2022 — 2025</div>
+          <h3 class="exp-company">Instituto Alpha</h3>
+          <span class="exp-role">Coordenador de Projetos</span>
+          <p class="exp-desc">
+            Liderança de 78 colaboradores. Automação em Python para vigilância sanitária.
+            Integração CROSS/SIRESP. Melhoria contínua de processos hospitalares.
+          </p>
+        </div>
+        <div class="exp-card shadow-cartoon" data-scroll="slide-up" data-delay="400">
+          <div class="exp-period">2018 — 2022</div>
+          <h3 class="exp-company">Escola Móbile</h3>
+          <span class="exp-role">Full Stack (Junior → Pleno)</span>
+          <p class="exp-desc">
+            Sistemas acadêmicos para milhares de alunos. Vue.js, Nuxt.js, Django,
+            FastAPI, Kubernetes, Terraform. Dashboards, LGPD, integrações.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS SECTION ===== -->
+    <section class="section" id="projetos">
+      <h2 class="section-title" data-scroll="slide-left">PROJETOS</h2>
+      <div class="projects-stack">
+
+        <div class="project-row shadow-cartoon" data-scroll="slide-up" data-delay="0">
+          <div class="project-info">
+            <div class="project-top">
+              <span class="project-number">01</span>
+              <span class="project-status-badge pulse-anim">Em produção</span>
+            </div>
+            <h3 class="project-name">NextApps CRM</h3>
+            <span class="project-tagline">CRM COM IA + AGENTE WHATSAPP</span>
+            <p class="project-desc">
+              CRM inteligente que automatiza processos, gera insights e antecipa ações com IA.
+              +10 mil usuários ativos. Integração com WhatsApp, pagamentos PIX, Google Calendar e automações n8n.
+            </p>
+            <div class="project-tech">
+              <span>Next.js 16</span>
+              <span>React 19</span>
+              <span>Hono.js</span>
+              <span>PostgreSQL</span>
+              <span>WebSocket</span>
+              <span>WhatsApp API</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-row shadow-cartoon" data-scroll="slide-up" data-delay="200">
+          <div class="project-info">
+            <div class="project-top">
+              <span class="project-number">02</span>
+              <span class="project-status-badge pulse-anim">Em produção</span>
+            </div>
+            <h3 class="project-name">Plataforma Educacional</h3>
+            <span class="project-tagline">SISTEMA ACADÊMICO COMPLETO</span>
+            <p class="project-desc">
+              Sistema para milhares de alunos com módulos acadêmicos, financeiros e pedagógicos.
+              Dashboards, relatórios, integrações e conformidade LGPD.
+            </p>
+            <div class="project-tech">
+              <span>Vue.js</span>
+              <span>Nuxt.js</span>
+              <span>Django</span>
+              <span>FastAPI</span>
+              <span>Kubernetes</span>
+              <span>Terraform</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-row shadow-cartoon" data-scroll="slide-up" data-delay="400">
+          <div class="project-info">
+            <div class="project-top">
+              <span class="project-number">03</span>
+              <span class="project-status-badge completed-badge">Concluído</span>
+            </div>
+            <h3 class="project-name">Automação Hospitalar</h3>
+            <span class="project-tagline">PYTHON PARA VIGILÂNCIA SANITÁRIA</span>
+            <p class="project-desc">
+              App em Python para automatizar coleta e análise de dados de óbitos e CID.
+              Redução drástica de tempo manual e aumento de precisão dos dados.
+            </p>
+            <div class="project-tech">
+              <span>Python</span>
+              <span>Automação</span>
+              <span>Data Analysis</span>
+              <span>CROSS/SIRESP</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== EDUCATION SECTION ===== -->
+    <section class="section" id="formacao">
+      <h2 class="section-title" data-scroll="slide-left">FORMAÇÃO</h2>
+      <div class="edu-row">
+        <div class="edu-card shadow-cartoon" data-scroll="scale-in" data-delay="0">
+          <div class="edu-emoji">🧠</div>
+          <span class="edu-school">FIAP</span>
+          <span class="edu-course">Machine Learning, IA Generativa & NLP</span>
+          <span class="edu-year">2026 — 2028</span>
+          <span class="edu-badge edu-active">Em andamento</span>
+        </div>
+        <div class="edu-card shadow-cartoon" data-scroll="scale-in" data-delay="200">
+          <div class="edu-emoji">💻</div>
+          <span class="edu-school">UMC</span>
+          <span class="edu-course">Análise e Desenvolvimento de Sistemas</span>
+          <span class="edu-year">2022 — 2024</span>
+          <span class="edu-badge edu-done">Concluído</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section class="section" id="contato">
+      <div class="contact-card shadow-cartoon" data-scroll="scale-in">
+        <h2 class="contact-title">Bora construir algo juntos? 🚀</h2>
+        <p class="contact-desc">
+          IA aplicada, automação, CRM, integrações — se o problema é real, a solução vai ser boa.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:seu-email@email.com" class="btn btn-contact-primary shadow-cartoon contact-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+            E-mail
+          </a>
+          <a href="https://github.com/viniciusamorim" target="_blank" rel="noopener noreferrer" class="btn btn-contact-outline shadow-cartoon contact-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            GitHub
+          </a>
+          <a href="https://linkedin.com/in/viniciusfeitosa" target="_blank" rel="noopener noreferrer" class="btn btn-contact-outline shadow-cartoon contact-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    © 2026 — Feito com café, código e um pouco de IA ☕
+  </footer>
+
+  <script>
+    // ===== THEME =====
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    const iconMoon = themeToggle.querySelector('.icon-moon');
+    const iconSun = themeToggle.querySelector('.icon-sun');
+
+    function setTheme(isDark) {
+      body.classList.toggle('dark', isDark);
+      body.classList.toggle('light', !isDark);
+      iconMoon.style.display = isDark ? 'block' : 'none';
+      iconSun.style.display = isDark ? 'none' : 'block';
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
+
+    const saved = localStorage.getItem('theme');
+    setTheme(saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches);
+    themeToggle.addEventListener('click', () => setTheme(!body.classList.contains('dark')));
+
+    // ===== SCROLL PROGRESS BAR =====
+    window.addEventListener('scroll', () => {
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      document.getElementById('progressBar').style.width = (scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0) + '%';
+    });
+
+    // ===== TYPING EFFECT =====
+    const phrases = [
+      'whoami → full stack developer',
+      'focus → IA aplicada + automação',
+      'stack → react · node · python',
+      'status → building cool stuff'
+    ];
+    let phraseIdx = 0, charIdx = 0, deleting = false;
+    const typingEl = document.getElementById('typingText');
+
+    function typeLoop() {
+      const current = phrases[phraseIdx];
+      if (!deleting) {
+        typingEl.textContent = current.substring(0, charIdx + 1);
+        charIdx++;
+        if (charIdx === current.length) {
+          deleting = true;
+          setTimeout(typeLoop, 2000);
+          return;
+        }
+        setTimeout(typeLoop, 60);
+      } else {
+        typingEl.textContent = current.substring(0, charIdx - 1);
+        charIdx--;
+        if (charIdx === 0) {
+          deleting = false;
+          phraseIdx = (phraseIdx + 1) % phrases.length;
+          setTimeout(typeLoop, 400);
+          return;
+        }
+        setTimeout(typeLoop, 30);
+      }
+    }
+    setTimeout(typeLoop, 800);
+
+    // ===== HERO ENTRANCE ANIMATIONS =====
+    document.addEventListener('DOMContentLoaded', () => {
+      const avatarCard = document.querySelector('[data-hero="avatar-card"]');
+      if (avatarCard) {
+        avatarCard.style.opacity = '0';
+        avatarCard.style.transform = 'translateX(-80px) rotate(-4deg)';
+        setTimeout(() => {
+          avatarCard.style.transition = 'transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease';
+          avatarCard.style.opacity = '1';
+          avatarCard.style.transform = 'translateX(0) rotate(-2deg)';
+        }, 100);
+      }
+
+      const statusBadge = document.querySelector('[data-hero="oi-badge"]');
+      if (statusBadge) {
+        statusBadge.style.opacity = '0';
+        statusBadge.style.transform = 'scale(0)';
+        setTimeout(() => {
+          statusBadge.style.transition = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease';
+          statusBadge.style.opacity = '1';
+          statusBadge.style.transform = 'scale(1)';
+        }, 600);
+      }
+
+      const devBadge = document.querySelector('[data-hero="dev-badge"]');
+      if (devBadge) {
+        devBadge.style.opacity = '0';
+        devBadge.style.transform = 'translateY(-20px)';
+        setTimeout(() => {
+          devBadge.style.transition = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease';
+          devBadge.style.opacity = '1';
+          devBadge.style.transform = 'translateY(0)';
+        }, 200);
+      }
+
+      const title = document.querySelector('[data-hero="title"]');
+      if (title) {
+        title.style.opacity = '0';
+        title.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+          title.style.transition = 'transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease';
+          title.style.opacity = '1';
+          title.style.transform = 'scale(1)';
+        }, 350);
+      }
+
+      document.querySelectorAll('[data-hero="description"], [data-hero="description2"]').forEach((el, i) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateX(40px)';
+        setTimeout(() => {
+          el.style.transition = 'transform 0.6s ease-out, opacity 0.5s ease';
+          el.style.opacity = '1';
+          el.style.transform = 'translateX(0)';
+        }, 500 + i * 100);
+      });
+
+      const buttons = document.querySelector('[data-hero="buttons"]');
+      if (buttons) {
+        buttons.style.opacity = '0';
+        buttons.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+          buttons.style.transition = 'transform 0.5s ease-out, opacity 0.4s ease';
+          buttons.style.opacity = '1';
+          buttons.style.transform = 'translateY(0)';
+        }, 700);
+      }
+    });
+
+    // ===== SCROLL-TRIGGERED ANIMATIONS =====
+    const scrollObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const delay = parseInt(el.dataset.delay) || 0;
+          setTimeout(() => { el.classList.add('scroll-visible'); }, delay);
+          scrollObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('[data-scroll]').forEach(el => scrollObserver.observe(el));
+
+    // ===== SMOOTH SCROLL =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
