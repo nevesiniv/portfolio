@@ -262,7 +262,7 @@ body.dark {
    EXPERIENCE
    ============================================ */
 .exp-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; max-width: 50rem; margin: 0 auto; }
-@media (min-width: 768px) { .exp-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 768px) { .exp-grid { grid-template-columns: repeat(2, 1fr); } }
 
 .exp-card {
   padding: 1.5rem; border-radius: 1.5rem; border: 3px solid var(--border);
@@ -334,6 +334,23 @@ body.dark {
   background: rgba(124, 58, 237, 0.08); color: var(--fg);
 }
 .dark .project-tech span { border-color: var(--cyan); background: rgba(6, 182, 212, 0.08); color: var(--fg-dark); }
+
+.project-link {
+  display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.2rem;
+  padding: 0.5rem 1.2rem; border-radius: 0.75rem; font-family: 'Fredoka', sans-serif;
+  font-size: 0.85rem; font-weight: 700; text-decoration: none;
+  border: 2px solid var(--border); background: var(--violet); color: white;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.dark .project-link { border-color: var(--cyan); background: var(--cyan); color: var(--bg-dark); }
+.project-link:hover { transform: translateY(-3px); background: var(--indigo); }
+.dark .project-link:hover { background: #22d3ee; }
+.project-link-private {
+  background: var(--muted); cursor: default; opacity: 0.6;
+}
+.dark .project-link-private { background: var(--muted-dark); color: var(--bg-dark); }
+.project-link-private:hover { transform: none; background: var(--muted); }
+.dark .project-link-private:hover { background: var(--muted-dark); }
 
 /* ============================================
    EDUCATION
