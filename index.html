@@ -18,20 +18,6 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="light">
-    <!-- Intro Loader -->
-    <div class="intro-loader" id="introLoader">
-      <div class="intro-terminal">
-        <div class="intro-dots">
-          <span></span><span></span><span></span>
-        </div>
-        <div class="intro-lines" id="introLines"></div>
-        <div class="intro-name" id="introName">
-          <span class="intro-letter">V</span><span class="intro-letter">I</span><span class="intro-letter">N</span><span class="intro-letter">I</span><span class="intro-letter">C</span><span class="intro-letter">I</span><span class="intro-letter">U</span><span class="intro-letter">S</span>
-        </div>
-        <div class="intro-subtitle" id="introSubtitle">Full Stack Developer</div>
-      </div>
-    </div>
-
     <!-- Theme Transition Overlay -->
     <div class="theme-transition" id="themeTransition"></div>
 
@@ -911,86 +897,8 @@
       }
       setTimeout(typeLoop, 800);
 
-      // ===== HERO ENTRANCE ANIMATIONS =====
-      document.addEventListener("DOMContentLoaded", () => {
-        const avatarCard = document.querySelector('[data-hero="avatar-card"]');
-        if (avatarCard) {
-          avatarCard.style.opacity = "0";
-          avatarCard.style.transform = "translateX(-80px) rotate(-4deg)";
-          setTimeout(() => {
-            avatarCard.style.transition =
-              "transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease";
-            avatarCard.style.opacity = "1";
-            avatarCard.style.transform = "translateX(0) rotate(-2deg)";
-          }, 100);
-        }
-
-        const statusBadge = document.querySelector('[data-hero="oi-badge"]');
-        if (statusBadge) {
-          statusBadge.style.opacity = "0";
-          statusBadge.style.transform = "scale(0)";
-          setTimeout(() => {
-            statusBadge.style.transition =
-              "transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease";
-            statusBadge.style.opacity = "1";
-            statusBadge.style.transform = "scale(1)";
-          }, 600);
-        }
-
-        const devBadge = document.querySelector('[data-hero="dev-badge"]');
-        if (devBadge) {
-          devBadge.style.opacity = "0";
-          devBadge.style.transform = "translateY(-20px)";
-          setTimeout(() => {
-            devBadge.style.transition =
-              "transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease";
-            devBadge.style.opacity = "1";
-            devBadge.style.transform = "translateY(0)";
-          }, 200);
-        }
-
-        const title = document.querySelector('[data-hero="title"]');
-        if (title) {
-          title.style.opacity = "0";
-          title.style.transform = "scale(0.9)";
-          setTimeout(() => {
-            title.style.transition =
-              "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease";
-            title.style.opacity = "1";
-            title.style.transform = "scale(1)";
-          }, 350);
-        }
-
-        document
-          .querySelectorAll(
-            '[data-hero="description"], [data-hero="description2"]',
-          )
-          .forEach((el, i) => {
-            el.style.opacity = "0";
-            el.style.transform = "translateX(40px)";
-            setTimeout(
-              () => {
-                el.style.transition =
-                  "transform 0.6s ease-out, opacity 0.5s ease";
-                el.style.opacity = "1";
-                el.style.transform = "translateX(0)";
-              },
-              500 + i * 100,
-            );
-          });
-
-        const buttons = document.querySelector('[data-hero="buttons"]');
-        if (buttons) {
-          buttons.style.opacity = "0";
-          buttons.style.transform = "translateY(20px)";
-          setTimeout(() => {
-            buttons.style.transition =
-              "transform 0.5s ease-out, opacity 0.4s ease";
-            buttons.style.opacity = "1";
-            buttons.style.transform = "translateY(0)";
-          }, 700);
-        }
-      });
+      // ===== PAGE ENTRANCE =====
+      document.body.classList.add("entrance");
 
       // ===== SCROLL-TRIGGERED ANIMATIONS =====
       const scrollObserver = new IntersectionObserver(
@@ -1190,82 +1098,6 @@
         "color: #06b6d4; font-weight: bold; font-size: 14px;",
         "color: #a89ec8; font-size: 12px;"
       );
-
-      // ===== INTRO LOADER =====
-      (function () {
-        const loader = document.getElementById("introLoader");
-        if (!loader) return;
-
-        if (sessionStorage.getItem("introSeen")) {
-          loader.remove();
-          return;
-        }
-
-        document.body.style.overflow = "hidden";
-        const linesEl = document.getElementById("introLines");
-        const nameEl = document.getElementById("introName");
-        const subtitleEl = document.getElementById("introSubtitle");
-
-        const lines = [
-          { prompt: "$ ", cmd: "whoami", result: "vinicius.feitosa" },
-          { prompt: "$ ", cmd: "cat skills.txt", result: "next.js · react · python · IA" },
-          { prompt: "$ ", cmd: "node portfolio.js", result: "✓ Iniciando..." },
-        ];
-
-        let lineIdx = 0;
-
-        function typeLine() {
-          if (lineIdx >= lines.length) {
-            showName();
-            return;
-          }
-
-          const line = lines[lineIdx];
-          const lineEl = document.createElement("div");
-          lineEl.innerHTML = `<span class="intro-line-prompt">${line.prompt}</span><span class="intro-line-cmd"></span>`;
-          linesEl.appendChild(lineEl);
-
-          const cmdSpan = lineEl.querySelector(".intro-line-cmd");
-          let charIdx = 0;
-
-          function typeChar() {
-            if (charIdx < line.cmd.length) {
-              cmdSpan.textContent += line.cmd[charIdx];
-              charIdx++;
-              setTimeout(typeChar, 35);
-            } else {
-              const resultEl = document.createElement("div");
-              resultEl.className = "intro-line-result";
-              resultEl.textContent = line.result;
-              linesEl.appendChild(resultEl);
-              lineIdx++;
-              setTimeout(typeLine, 300);
-            }
-          }
-          typeChar();
-        }
-
-        function showName() {
-          nameEl.classList.add("visible");
-          const letters = nameEl.querySelectorAll(".intro-letter");
-          letters.forEach((l, i) => {
-            setTimeout(() => l.classList.add("pop"), i * 70);
-          });
-
-          setTimeout(() => {
-            subtitleEl.classList.add("visible");
-          }, letters.length * 70 + 200);
-
-          setTimeout(() => {
-            loader.classList.add("done");
-            document.body.style.overflow = "";
-            sessionStorage.setItem("introSeen", "1");
-            setTimeout(() => loader.remove(), 600);
-          }, letters.length * 70 + 1200);
-        }
-
-        setTimeout(typeLine, 400);
-      })();
 
       // ===== SMOOTH SCROLL =====
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
