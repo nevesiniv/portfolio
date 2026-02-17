@@ -275,6 +275,20 @@ body.dark {
 .dark .skill-pill:hover { background: var(--cyan); color: var(--bg-dark); border-color: var(--cyan); }
 
 /* ============================================
+   3D TILT
+   ============================================ */
+[data-tilt] {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+[data-tilt] .project-name,
+[data-tilt] .exp-company,
+[data-tilt] .edu-school,
+[data-tilt] .edu-emoji {
+  transform: translateZ(30px);
+}
+
+/* ============================================
    EXPERIENCE
    ============================================ */
 .exp-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; max-width: 50rem; margin: 0 auto; }
