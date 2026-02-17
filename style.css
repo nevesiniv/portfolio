@@ -463,6 +463,161 @@ body.entrance .theme-toggle {
 .dark .project-link-private:hover { background: var(--muted-dark); }
 
 /* ============================================
+   PROJECT PREVIEW (Interactive Browser Mockup)
+   ============================================ */
+.project-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.project-preview {
+  opacity: 0;
+  transform: translateX(30px) scale(0.95);
+  transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project-row:hover .project-preview {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+.preview-browser {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 2px solid var(--border);
+  background: #1a1a2e;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+.dark .preview-browser {
+  border-color: rgba(6, 182, 212, 0.4);
+  box-shadow: 0 8px 32px rgba(6, 182, 212, 0.08);
+}
+
+.preview-browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  background: #2a2a3e;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.dark .preview-browser-bar {
+  background: #0d0a1a;
+}
+
+.preview-dots {
+  display: flex;
+  gap: 5px;
+}
+.preview-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.preview-url {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.3rem;
+  background: rgba(255, 255, 255, 0.06);
+  font-family: 'Courier New', monospace;
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+.preview-url svg {
+  color: var(--emerald);
+  flex-shrink: 0;
+}
+
+.preview-content {
+  height: 180px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- Image Preview (real screenshots) --- */
+.preview-img-wrapper {
+  display: flex;
+  align-items: flex-start;
+}
+.preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.project-row:hover .preview-img {
+  transform: scale(1.05);
+}
+
+/* --- Terminal Preview (Hospital Automation) --- */
+.preview-terminal {
+  background: #0a0a0f;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+.preview-terminal-line {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.project-row:hover .preview-terminal-line:nth-child(1) {
+  opacity: 1; transform: translateY(0); transition-delay: 0.15s;
+}
+.project-row:hover .preview-terminal-line:nth-child(2) {
+  opacity: 1; transform: translateY(0); transition-delay: 0.5s;
+}
+.project-row:hover .preview-terminal-line:nth-child(3) {
+  opacity: 1; transform: translateY(0); transition-delay: 0.85s;
+}
+.project-row:hover .preview-terminal-line:nth-child(4) {
+  opacity: 1; transform: translateY(0); transition-delay: 1.2s;
+}
+.project-row:hover .preview-terminal-line:nth-child(5) {
+  opacity: 1; transform: translateY(0); transition-delay: 1.5s;
+}
+.preview-term-prompt {
+  color: var(--emerald);
+  font-weight: bold;
+}
+.preview-term-output {
+  color: rgba(255, 255, 255, 0.4);
+}
+.preview-term-success {
+  color: var(--emerald);
+}
+.preview-term-cursor {
+  color: var(--cyan);
+  animation: cursor-blink 1s step-end infinite;
+}
+
+/* Preview responsive */
+@media (max-width: 768px) {
+  .project-row {
+    grid-template-columns: 1fr;
+  }
+  .project-preview {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ============================================
    EDUCATION
    ============================================ */
 .edu-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 42rem; margin: 0 auto; }
