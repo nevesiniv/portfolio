@@ -18,6 +18,20 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="light">
+    <!-- Intro Loader -->
+    <div class="intro-loader" id="introLoader">
+      <div class="intro-terminal">
+        <div class="intro-dots">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="intro-lines" id="introLines"></div>
+        <div class="intro-name" id="introName">
+          <span class="intro-letter">V</span><span class="intro-letter">I</span><span class="intro-letter">N</span><span class="intro-letter">I</span><span class="intro-letter">C</span><span class="intro-letter">I</span><span class="intro-letter">U</span><span class="intro-letter">S</span>
+        </div>
+        <div class="intro-subtitle" id="introSubtitle">Full Stack Developer</div>
+      </div>
+    </div>
+
     <!-- Scroll Progress Bar -->
     <div class="progress-bar" id="progressBar"></div>
 
@@ -1111,6 +1125,82 @@
         "color: #06b6d4; font-weight: bold; font-size: 14px;",
         "color: #a89ec8; font-size: 12px;"
       );
+
+      // ===== INTRO LOADER =====
+      (function () {
+        const loader = document.getElementById("introLoader");
+        if (!loader) return;
+
+        if (sessionStorage.getItem("introSeen")) {
+          loader.remove();
+          return;
+        }
+
+        document.body.style.overflow = "hidden";
+        const linesEl = document.getElementById("introLines");
+        const nameEl = document.getElementById("introName");
+        const subtitleEl = document.getElementById("introSubtitle");
+
+        const lines = [
+          { prompt: "$ ", cmd: "whoami", result: "vinicius.feitosa" },
+          { prompt: "$ ", cmd: "cat skills.txt", result: "next.js · react · python · IA" },
+          { prompt: "$ ", cmd: "node portfolio.js", result: "✓ Iniciando..." },
+        ];
+
+        let lineIdx = 0;
+
+        function typeLine() {
+          if (lineIdx >= lines.length) {
+            showName();
+            return;
+          }
+
+          const line = lines[lineIdx];
+          const lineEl = document.createElement("div");
+          lineEl.innerHTML = `<span class="intro-line-prompt">${line.prompt}</span><span class="intro-line-cmd"></span>`;
+          linesEl.appendChild(lineEl);
+
+          const cmdSpan = lineEl.querySelector(".intro-line-cmd");
+          let charIdx = 0;
+
+          function typeChar() {
+            if (charIdx < line.cmd.length) {
+              cmdSpan.textContent += line.cmd[charIdx];
+              charIdx++;
+              setTimeout(typeChar, 35);
+            } else {
+              const resultEl = document.createElement("div");
+              resultEl.className = "intro-line-result";
+              resultEl.textContent = line.result;
+              linesEl.appendChild(resultEl);
+              lineIdx++;
+              setTimeout(typeLine, 300);
+            }
+          }
+          typeChar();
+        }
+
+        function showName() {
+          nameEl.classList.add("visible");
+          const letters = nameEl.querySelectorAll(".intro-letter");
+          letters.forEach((l, i) => {
+            setTimeout(() => l.classList.add("pop"), i * 70);
+          });
+
+          setTimeout(() => {
+            subtitleEl.classList.add("visible");
+          }, letters.length * 70 + 200);
+
+          setTimeout(() => {
+            loader.classList.add("done");
+            document.body.style.overflow = "";
+            sessionStorage.setItem("introSeen", "1");
+            setTimeout(() => loader.remove(), 600);
+          }, letters.length * 70 + 1200);
+        }
+
+        setTimeout(typeLine, 400);
+      })();
 
       // ===== SMOOTH SCROLL =====
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
