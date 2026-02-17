@@ -23,7 +23,8 @@
 
     <!-- Language Toggle -->
     <button class="lang-toggle" id="langToggle" aria-label="Trocar idioma">
-      <span id="langLabel">EN</span>
+      <span id="langFlag">🇧🇷</span>
+      <span id="langLabel">PT</span>
     </button>
 
     <!-- Theme Toggle -->
@@ -761,7 +762,8 @@
           const key = el.getAttribute("data-i18n");
           if (t[key]) el.innerHTML = t[key];
         });
-        document.getElementById("langLabel").textContent = lang === "pt-BR" ? "EN" : "PT";
+        document.getElementById("langFlag").textContent = lang === "pt-BR" ? "🇧🇷" : "🇺🇸";
+        document.getElementById("langLabel").textContent = lang === "pt-BR" ? "PT" : "EN";
         localStorage.setItem("lang", lang);
         // restart typing with new phrases
         phraseIdx = 0;
