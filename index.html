@@ -17,7 +17,7 @@
     />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body class="dark">
+  <body class="light">
     <!-- Scroll Progress Bar -->
     <div class="progress-bar" id="progressBar"></div>
 
@@ -661,7 +661,7 @@
       setTheme(
         saved
           ? saved === "dark"
-          : window.matchMedia("(prefers-color-scheme: dark)").matches,
+          : false,
       );
       themeToggle.addEventListener("click", () =>
         setTheme(!body.classList.contains("dark")),
