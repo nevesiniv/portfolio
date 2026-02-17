@@ -341,6 +341,12 @@ body.dark {
 .dark .skill-pill:hover { background: var(--cyan); color: var(--bg-dark); border-color: var(--cyan); }
 
 /* ============================================
+   AVATAR DEPTH PARALLAX
+   ============================================ */
+[data-depth-scene] { perspective: 800px; }
+[data-depth] { will-change: transform; transition: transform 0.15s ease-out; }
+
+/* ============================================
    3D TILT
    ============================================ */
 [data-tilt] {

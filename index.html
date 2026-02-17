@@ -91,12 +91,12 @@
         <div class="hero-grid">
           <!-- Left: Avatar -->
           <div class="avatar-section">
-            <div class="avatar-wrapper">
+            <div class="avatar-wrapper" data-depth-scene>
               <!-- Decorative shapes -->
-              <div class="deco-circle deco-1"></div>
-              <div class="deco-circle deco-2"></div>
+              <div class="deco-circle deco-1" data-depth="0.06"></div>
+              <div class="deco-circle deco-2" data-depth="0.08"></div>
               <!-- Card with slight rotation -->
-              <div class="avatar-card shadow-cartoon" data-hero="avatar-card">
+              <div class="avatar-card shadow-cartoon" data-hero="avatar-card" data-depth="0.03">
                 <img
                   src="assets/Viniff.png"
                   alt="Vinicius Feitosa"
@@ -112,7 +112,7 @@
                 </div>
               </div>
               <!-- Status badge -->
-              <div class="status-badge shadow-cartoon-sm" data-hero="oi-badge">
+              <div class="status-badge shadow-cartoon-sm" data-hero="oi-badge" data-depth="0.1">
                 <span class="status-dot"></span> <span data-i18n="hero.badge">Opa!</span>
               </div>
             </div>
@@ -1039,6 +1039,38 @@
           card.style.transition = "none";
         });
       });
+
+      // ===== AVATAR DEPTH PARALLAX =====
+      const depthScene = document.querySelector("[data-depth-scene]");
+      if (depthScene && window.matchMedia("(pointer: fine)").matches) {
+        const depthItems = depthScene.querySelectorAll("[data-depth]");
+
+        depthScene.addEventListener("mousemove", (e) => {
+          const rect = depthScene.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+          const moveX = (e.clientX - centerX);
+          const moveY = (e.clientY - centerY);
+
+          depthItems.forEach((item) => {
+            const depth = parseFloat(item.dataset.depth) || 0.05;
+            const tx = moveX * depth;
+            const ty = moveY * depth;
+
+            const existingTransform = item.dataset.hero === "avatar-card" ? "rotate(-2deg)" : "";
+            item.style.transform = `${existingTransform} translate(${tx}px, ${ty}px)`;
+          });
+        });
+
+        depthScene.addEventListener("mouseleave", () => {
+          depthItems.forEach((item) => {
+            item.style.transition = "transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
+            const existingTransform = item.dataset.hero === "avatar-card" ? "rotate(-2deg)" : "";
+            item.style.transform = `${existingTransform} translate(0, 0)`;
+            setTimeout(() => { item.style.transition = ""; }, 500);
+          });
+        });
+      }
 
       // ===== COMMAND PALETTE =====
       const cmdPalette = document.getElementById("cmdPalette");
