@@ -929,6 +929,11 @@
       document.querySelectorAll("[data-tilt]").forEach((card) => {
         const maxTilt = 8;
 
+        // Add glow overlay
+        const glow = document.createElement("div");
+        glow.className = "card-glow";
+        card.appendChild(glow);
+
         card.addEventListener("mousemove", (e) => {
           const rect = card.getBoundingClientRect();
           const x = e.clientX - rect.left;
@@ -939,6 +944,8 @@
           const rotateX = ((centerY - y) / centerY) * maxTilt;
 
           card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+          card.style.setProperty("--glow-x", x + "px");
+          card.style.setProperty("--glow-y", y + "px");
         });
 
         card.addEventListener("mouseleave", () => {
