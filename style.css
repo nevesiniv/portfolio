@@ -540,6 +540,23 @@ body.entrance .theme-toggle {
 .powered-by-logo { height: 48px; width: auto; }
 
 /* ============================================
+   TOAST
+   ============================================ */
+.toast {
+  position: fixed; bottom: 2rem; left: 50%; z-index: 9999;
+  transform: translateX(-50%) translateY(20px);
+  padding: 0.75rem 1.5rem; border-radius: 1rem;
+  font-family: 'Fredoka', sans-serif; font-size: 0.9rem; font-weight: 700;
+  background: var(--violet); color: white;
+  border: 3px solid var(--border);
+  box-shadow: 5px 5px 0 var(--shadow);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.dark .toast { background: var(--cyan); color: var(--bg-dark); border-color: var(--cyan); box-shadow: 5px 5px 0 var(--shadow-dark); }
+.toast.visible { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+
+/* ============================================
    COMMAND PALETTE
    ============================================ */
 .cmd-backdrop {

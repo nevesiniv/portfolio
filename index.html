@@ -586,9 +586,10 @@
             solução vai ser boa.
           </p>
           <div class="contact-links">
-            <a
-              href="mailto:inivdev@gmail.com"
+            <button
               class="btn btn-contact-outline shadow-cartoon contact-btn"
+              id="copyEmailBtn"
+              data-email="inivdev@gmail.com"
             >
               <svg
                 width="20"
@@ -604,7 +605,7 @@
                 <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
               </svg>
               E-mail
-            </a>
+            </button>
             <a
               href="https://github.com/nevesiniv"
               target="_blank"
@@ -645,6 +646,9 @@
         </div>
       </section>
     </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
 
     <!-- Command Palette -->
     <div class="cmd-backdrop" id="cmdBackdrop"></div>
@@ -1098,6 +1102,25 @@
         "color: #06b6d4; font-weight: bold; font-size: 14px;",
         "color: #a89ec8; font-size: 12px;"
       );
+
+      // ===== COPY EMAIL + TOAST =====
+      const copyBtn = document.getElementById("copyEmailBtn");
+      const toastEl = document.getElementById("toast");
+      let toastTimer;
+
+      function showToast(msg) {
+        clearTimeout(toastTimer);
+        toastEl.textContent = msg;
+        toastEl.classList.add("visible");
+        toastTimer = setTimeout(() => toastEl.classList.remove("visible"), 2500);
+      }
+
+      copyBtn.addEventListener("click", () => {
+        const email = copyBtn.dataset.email;
+        navigator.clipboard.writeText(email).then(() => {
+          showToast(currentLang === "en" ? "Email copied!" : "Email copiado!");
+        });
+      });
 
       // ===== SMOOTH SCROLL =====
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
