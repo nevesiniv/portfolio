@@ -443,7 +443,7 @@ body.dark {
   background: rgba(30,30,40,0.7); color: #aaa;
   box-shadow: 0 2px 12px rgba(0,0,0,0.2);
 }
-.powered-by-logo { height: 28px; width: auto; }
+.powered-by-logo { height: 48px; width: auto; }
 
 /* ============================================
    RESPONSIVE
