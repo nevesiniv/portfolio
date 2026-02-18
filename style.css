@@ -24,7 +24,7 @@
   --shadow-dark: var(--cyan);
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: auto; }
 
 body {
   font-family: 'Quicksand', sans-serif;
