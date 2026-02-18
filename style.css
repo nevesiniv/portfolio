@@ -833,6 +833,7 @@ body.entrance .theme-toggle {
   .hero-content { display: flex; flex-direction: column; align-items: center; }
   .hero-title { font-size: 2.8rem; }
   .hero-description { text-align: center; }
+  .role-tags { flex-direction: column; align-items: center; }
   .hero-buttons { justify-content: center; }
   .avatar-card { width: 14rem; height: 18rem; }
   .terminal-badge { min-width: auto; font-size: 0.75rem; }
