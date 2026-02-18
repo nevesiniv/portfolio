@@ -336,6 +336,9 @@ body.entrance .theme-toggle {
   background: var(--card); margin-bottom: 2.5rem;
 }
 .dark .about-card { border-color: var(--cyan); background: var(--card-dark); }
+.about-content {
+  display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center;
+}
 .about-text {
   font-size: 1.1rem; line-height: 1.8; color: var(--muted); font-weight: 500;
 }
@@ -344,6 +347,24 @@ body.entrance .theme-toggle {
 .dark .about-text strong { color: var(--cyan); }
 .about-text em { font-style: normal; background: rgba(124, 58, 237, 0.1); padding: 0.1rem 0.4rem; border-radius: 0.3rem; }
 .dark .about-text em { background: rgba(6, 182, 212, 0.1); }
+
+/* About stats */
+.about-stats {
+  display: flex; flex-direction: column; gap: 1rem;
+  border-left: 3px solid var(--border); padding-left: 1.5rem;
+}
+.dark .about-stats { border-color: var(--cyan); }
+.about-stat { text-align: center; }
+.about-stat-number {
+  display: block; font-family: 'Fredoka', sans-serif; font-size: 1.8rem;
+  font-weight: 700; color: var(--violet); line-height: 1;
+}
+.dark .about-stat-number { color: var(--cyan); }
+.about-stat-label {
+  font-family: 'Fredoka', sans-serif; font-size: 0.7rem; font-weight: 600;
+  color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em;
+}
+.dark .about-stat-label { color: var(--muted-dark); }
 
 /* Skills as flow/pills */
 .skills-flow {
@@ -839,6 +860,9 @@ body.entrance .theme-toggle {
   .hero-buttons { justify-content: center; }
   .avatar-card { width: 14rem; height: 18rem; }
   .terminal-badge { min-width: auto; font-size: 0.75rem; }
+  .about-content { grid-template-columns: 1fr; }
+  .about-stats { flex-direction: row; justify-content: center; border-left: none; border-top: 3px solid var(--border); padding-left: 0; padding-top: 1rem; }
+  .dark .about-stats { border-color: var(--cyan); }
   .contact-links { flex-direction: column; align-items: center; }
   .exp-grid { grid-template-columns: 1fr; }
   .contact-card { padding: 2rem; }
