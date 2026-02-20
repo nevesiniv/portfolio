@@ -650,6 +650,92 @@ body.entrance .theme-toggle {
   }
 }
 
+/* ===== STACKING CARDS EFFECT (desktop) ===== */
+@media (min-width: 769px) {
+  .projects-stack {
+    gap: 0;
+    max-width: none;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+  }
+
+  .project-row {
+    position: sticky;
+    top: 0;
+    min-height: 100vh;
+    align-content: center;
+    padding: 3rem 5vw;
+    grid-template-columns: 5fr 7fr;
+    gap: 3rem;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    border: none;
+  }
+
+  .project-row.shadow-cartoon {
+    box-shadow: 0 -16px 48px rgba(0, 0, 0, 0.08), 0 -2px 8px rgba(0, 0, 0, 0.04);
+  }
+  .dark .project-row.shadow-cartoon {
+    box-shadow: 0 -16px 48px rgba(0, 0, 0, 0.4), 0 -2px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  /* z-index + unique gradient backgrounds */
+  .project-row:nth-child(1) {
+    z-index: 1;
+    background: linear-gradient(180deg, #ffffff 0%, #eeebff 100%);
+  }
+  .dark .project-row:nth-child(1) {
+    background: linear-gradient(180deg, #1a1530 0%, #221845 100%);
+  }
+
+  .project-row:nth-child(2) {
+    z-index: 2;
+    background: linear-gradient(180deg, #ffffff 0%, #fff0f3 100%);
+  }
+  .dark .project-row:nth-child(2) {
+    background: linear-gradient(180deg, #1a1530 0%, #2a1525 100%);
+  }
+
+  .project-row:nth-child(3) {
+    z-index: 3;
+    background: linear-gradient(180deg, #ffffff 0%, #ecfeff 100%);
+  }
+  .dark .project-row:nth-child(3) {
+    background: linear-gradient(180deg, #1a1530 0%, #152030 100%);
+  }
+
+  .project-row:nth-child(4) {
+    z-index: 4;
+    background: linear-gradient(180deg, #ffffff 0%, #ecfdf5 100%);
+  }
+  .dark .project-row:nth-child(4) {
+    background: linear-gradient(180deg, #1a1530 0%, #152520 100%);
+  }
+
+  /* Preview always visible and larger in stacking mode */
+  .project-preview {
+    opacity: 1;
+    transform: none;
+  }
+
+  .preview-content {
+    height: 380px;
+  }
+
+  .project-name {
+    font-size: 2.2rem;
+  }
+
+  .project-desc {
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+
+  .project-number {
+    font-size: 3rem;
+  }
+}
+
 /* ============================================
    EDUCATION
    ============================================ */
