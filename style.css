@@ -32,7 +32,7 @@ body {
   color: var(--fg);
   overflow-x: hidden;
   min-height: 100vh;
-  transition: background-color 0.3s, color 0.3s;
+  /* theme swap is handled by the clip-path overlay — no body transition needed */
 }
 
 body.dark {
@@ -119,11 +119,22 @@ body.entrance .theme-toggle {
 .theme-transition {
   position: fixed; z-index: 90; pointer-events: none;
   top: 0; left: 0; width: 100%; height: 100%;
-  clip-path: circle(0px at var(--tx, 50%) var(--ty, 50%));
-  transition: clip-path 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 .theme-transition.expanding {
-  clip-path: circle(var(--radius, 150vmax) at var(--tx, 50%) var(--ty, 50%));
+  opacity: 1;
+}
+/* clip-path circle reveal only on desktop (GPU can handle it) */
+@media (min-width: 769px) {
+  .theme-transition {
+    opacity: 1;
+    clip-path: circle(0px at var(--tx, 50%) var(--ty, 50%));
+    transition: clip-path 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .theme-transition.expanding {
+    clip-path: circle(var(--radius, 150vmax) at var(--tx, 50%) var(--ty, 50%));
+  }
 }
 
 /* ===== PROGRESS BAR ===== */
