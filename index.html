@@ -962,6 +962,8 @@
       document.body.classList.add("entrance");
 
       // ===== SCROLL-TRIGGERED ANIMATIONS =====
+      const scrollEls = document.querySelectorAll("[data-scroll]");
+
       const scrollObserver = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -978,9 +980,21 @@
         { threshold: 0.1 },
       );
 
-      document
-        .querySelectorAll("[data-scroll]")
-        .forEach((el) => scrollObserver.observe(el));
+      scrollEls.forEach((el) => scrollObserver.observe(el));
+
+      // On reload, the browser may restore scroll position before the observer fires.
+      // Force-reveal any elements already in the viewport so they don't stay invisible.
+      requestAnimationFrame(() => {
+        scrollEls.forEach((el) => {
+          if (el.classList.contains("scroll-visible")) return;
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            const delay = parseInt(el.dataset.delay) || 0;
+            setTimeout(() => el.classList.add("scroll-visible"), delay);
+            scrollObserver.unobserve(el);
+          }
+        });
+      });
 
       // ===== 3D TILT EFFECT =====
       document.querySelectorAll("[data-tilt]").forEach((card) => {
