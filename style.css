@@ -712,6 +712,14 @@ body.entrance .theme-toggle {
     background: linear-gradient(180deg, #1a1530 0%, #152520 100%);
   }
 
+  /* In stacking mode, cards are fullscreen sticky — skip heavy stagger entrance */
+  .project-row[data-scroll="stagger"] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+
   /* Preview always visible and larger in stacking mode */
   .project-preview {
     opacity: 1;
